@@ -2,7 +2,6 @@
 
 Interactive CLI and Python toolkit for managing, downloading, and converting binary log files from PicoCore / ESP32 MicroPython devices.
 
-
 ## Features
 
 * **Interactive CLI** – Menu-driven interface for managing logs directly from your device
@@ -10,7 +9,6 @@ Interactive CLI and Python toolkit for managing, downloading, and converting bin
 * **Severity Filtering** – Filter logs by level (TRACE → FATAL)
 * **Device Integration** – Works directly over USB using `mpremote`
 * **Rich UI** – Clean terminal interface with progress bars and structured output
-
 
 ## Installation
 
@@ -20,23 +18,44 @@ Interactive CLI and Python toolkit for managing, downloading, and converting bin
 * [`uv`](https://astral.sh/uv/) (recommended)
 * ESP32 / PicoCore device connected via USB
 
-
-### Install (Recommended – via uv)
-
-#### Install globally (like a CLI tool)
+### Standard Install (Recommended)
 
 ```bash
+# Clone the repository
+git clone https://github.com/PauWol/PicoCore-Logs.git
+cd PicoCore-Logs
+
+# Install globally
 uv tool install .
 ```
 
-This makes the CLI available system-wide `picologs`.
-
-
-
-#### Development setup
+The CLI is now available from your system terminal:
 
 ```bash
-git clone <repository-url>
+picologs
+```
+
+**Note:** Run from your system terminal (not VS Code integrated terminal) to avoid path confusion.
+
+### Uninstall
+
+```bash
+uv tool uninstall picologs
+```
+
+### Alternative (pip)
+
+```bash
+git clone https://github.com/PauWol/PicoCore-Logs.git
+cd PicoCore-Logs
+
+pip install .
+```
+
+### Development Setup
+
+```bash
+git clone https://github.com/PauWol/PicoCore-Logs.git
 cd PicoCore-Logs
 
 uv sync
@@ -45,33 +64,24 @@ uv sync
 Run without installing:
 
 ```bash
-uv run main.py
+uv run picologs/main.py
 ```
-
-
-### Alternative (pip)
-
-```bash
-pip install .
-```
-
 
 ## Usage
 
-### Interactive CLI
+### Running the CLI
 
-If installed globally:
+From your system terminal:
 
 ```bash
-picocore-logs
+picologs
 ```
 
-Or via uv:
+Or if using development setup:
 
 ```bash
 uv run main.py
 ```
-
 
 ### What you can do
 
@@ -82,20 +92,17 @@ uv run main.py
 * Delete logs from device
 * Inspect device filesystem
 
-
-
 ## Programmatic Usage
 
 Use the converter in your own Python scripts:
 
 ```python
-from log_conv import parse_log_file, convert
+from picologs.log_conv import parse_log_file, convert
 
 records = parse_log_file("logs.bin", min_level=3)  # WARN+
 
 convert(records, fmt="csv", output_path="output.csv")
 ```
-
 
 ## Dependencies
 
@@ -104,12 +111,11 @@ convert(records, fmt="csv", output_path="output.csv")
 * `questionary` ≥ 2.1.1 — CLI prompts
 * `rich` ≥ 15.0.0 — UI rendering
 
-
 ## Log Format
 
 Binary logs are stored as:
 
-```
+```text
 [1 byte: level] [4 bytes: uptime_ms (LE)] [N bytes: ASCII message]
 ```
 
@@ -118,7 +124,6 @@ Binary logs are stored as:
 * Messages are ASCII (0x20–0x7E)
 
 **Note:** Messages may be truncated due to device buffer limits.
-
 
 ## License
 

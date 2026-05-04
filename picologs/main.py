@@ -24,7 +24,7 @@ except ImportError:
     print("Missing dependencies. Run:\n  pip install rich questionary pyserial")
     sys.exit(1)
 
-from board import Board, LEVEL_NAMES
+from picologs.board import Board, LEVEL_NAMES
 
 # ── theme ─────────────────────────────────────────────────────────────────────
 

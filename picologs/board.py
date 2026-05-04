@@ -8,7 +8,7 @@ from typing import Callable, Optional,Literal
 
 import serial.tools.list_ports
 
-from log_conv import parse_log_file,convert
+from picologs.log_conv import parse_log_file,convert
 
 ProgressCallback = Optional[Callable[[str, dict], None]]
 

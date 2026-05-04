@@ -1,5 +1,5 @@
 [project]
-name = "picocore-logs"
+name = "picologs"
 version = "0.1.0"
 description = "Interactive CLI and toolkit for managing, downloading, and converting binary log files from PicoCore / ESP32 MicroPython devices."
 readme = "README.md"
@@ -11,4 +11,8 @@ dependencies = [
     "rich>=15.0.0",
 ]
 [project.scripts]
-picologs = "main:main"
+picologs = "picologs.main:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
