@@ -21,12 +21,8 @@ Interactive CLI and Python toolkit for managing, downloading, and converting bin
 ### Standard Install (Recommended)
 
 ```bash
-# Clone the repository
-git clone https://github.com/PauWol/PicoCore-Logs.git
-cd PicoCore-Logs
-
 # Install globally
-uv tool install .
+uv tool install git+https://github.com/PauWol/PicoCore-Logs.git
 ```
 
 The CLI is now available from your system terminal:
@@ -50,6 +46,12 @@ git clone https://github.com/PauWol/PicoCore-Logs.git
 cd PicoCore-Logs
 
 pip install .
+```
+
+or this simple oneliner
+
+```bash
+pip install git+https://github.com/PauWol/PicoCore-Logs.git
 ```
 
 ### Development Setup
