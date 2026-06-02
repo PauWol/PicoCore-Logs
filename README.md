@@ -56,6 +56,31 @@ or this simple oneliner
 pip install git+https://github.com/PauWol/PicoCore-Logs.git
 ```
 
+### Troubleshooting / Device Access Disclaimer
+
+If `picologs` runs but no files are found, or operations like listing the filesystem, downloading logs, or deleting logs fail while the device is correctly connected, this is often caused by **serial port permission issues or device access restrictions**.
+
+As a quick temporary fix, you can grant direct access to the device port and rerun the CLI:
+
+```bash
+sudo chmod 666 /dev/<your-device> && picologs
+```
+
+Replace `/dev/<your-device>` with your actual serial port (for example `/dev/ttyACM0`, `/dev/ttyUSB0`, etc.).
+
+Example:
+
+```bash
+sudo chmod 666 /dev/ttyACM0 && picologs
+```
+
+**Note:**
+
+* This is a temporary fix and will reset after unplugging the device or rebooting.
+* If the issue persists, ensure no other program is using the port (e.g. serial monitors, IDEs).
+* For a permanent fix, add your user to the appropriate serial group (e.g. `uucp` or `dialout`) and re-login.
+
+
 ### Development Setup
 
 ```bash
