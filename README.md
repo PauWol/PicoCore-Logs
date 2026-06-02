@@ -25,7 +25,7 @@ Interactive CLI and Python toolkit for managing, downloading, and converting bin
 uv tool install git+https://github.com/PauWol/PicoCore-Logs.git
 ```
 
-The CLI is now available from your system terminal:
+The CLI is now available from your system terminal (if the command is not found, reopen your terminal so the installation path is refreshed).
 
 ```bash
 picologs
