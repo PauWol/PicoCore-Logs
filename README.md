@@ -22,6 +22,7 @@ Interactive CLI and Python toolkit for managing, downloading, and converting bin
 
 ```bash
 # Install globally
+uv tool install mpremote
 uv tool install git+https://github.com/PauWol/PicoCore-Logs.git
 ```
 
@@ -37,6 +38,7 @@ picologs
 
 ```bash
 uv tool uninstall picologs
+uv tool uninstall mpremote
 ```
 
 ### Alternative (pip)
